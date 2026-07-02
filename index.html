@@ -1,60 +1,1308 @@
----
-layout: page
-description: "中西融合, 即学即会, 从此不再辛苦背单词"
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for CyperHecate - Effective July 2, 2026">
+    <meta name="author" content="CyperHecate">
+    <title>Privacy Policy | CyperHecate</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --background: #fafafa;
+            --surface: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --border-light: #f1f5f9;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --radius: 12px;
+            --radius-lg: 16px;
+        }
 
-<!--
-<ul class="pager">
-  
-    <li class="next">
-        <a href="https://klovien.github.io/1-resources/" data-toggle="tooltip" data-placement="top" title="学习资料集">
-                        开始学习<br>
-        </a>
-    </li>           
-  
-    <li class="next">
-        <a href="https://klovien.github.io/2018/12/10/三叶语简介/" data-toggle="tooltip" data-placement="top" title="三叶语简介">
-                        了解更多<br>
-        </a>
-    </li>
-                    
-</ul>
--->
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">
-            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-        <div class="post-content-preview">
-            {{ post.content | strip_html | truncate:200 }}
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .header-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .header-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) transparent;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 2px;
+        }
+
+        .sidebar-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+        }
+
+        .sidebar-title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 4px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            border-left: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            background: var(--border-light);
+            color: var(--primary);
+            border-left-color: var(--primary-light);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            color: var(--primary-dark);
+            font-weight: 600;
+            border-left-color: var(--primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            min-width: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            border-radius: var(--radius-lg);
+            padding: 4rem 3rem;
+            margin-bottom: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-30%, 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .hero-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        /* Info Banner */
+        .info-banner {
+            background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+            border: 1px solid #bfdbfe;
+            border-left: 4px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-banner-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 15px;
+        }
+
+        .info-banner-text {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Section Cards */
+        .section-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-light);
+        }
+
+        .section-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .section-content {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+
+        .section-content h3 {
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .section-content h4 {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        /* Lists */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .styled-list li {
+            position: relative;
+            padding: 0.6rem 0 0.6rem 2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .styled-list li:last-child {
+            border-bottom: none;
+        }
+
+        .styled-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .mini-card {
+            background: var(--border-light);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .mini-card:hover {
+            background: white;
+            box-shadow: var(--shadow);
+            border-color: var(--primary-light);
+        }
+
+        .mini-card-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 15px;
+        }
+
+        .mini-card-text {
+            color: var(--text-secondary);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%);
+            border: 1px solid #fcd34d;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box-title {
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 0.5rem;
+            font-size: 15px;
+        }
+
+        .highlight-box-text {
+            color: #78350f;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            min-width: 100px;
+            font-size: 14px;
+        }
+
+        .contact-value {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .contact-value a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        /* Acknowledgment */
+        .acknowledgment {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border: 1px solid var(--accent);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .acknowledgment-text {
+            color: var(--text-primary);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.5rem;
+            }
+
+            .sidebar {
+                position: relative;
+                top: 0;
+                max-height: none;
+            }
+
+            .hero {
+                padding: 3rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 1.5rem;
+            }
+
+            .header-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .section-card {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Print Styles */
+        @media print {
+            .sidebar, header, footer, .bg-pattern {
+                display: none;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <div class="logo-icon">CH</div>
+                <span class="logo-text">CyperHecate</span>
+            </a>
+            <nav class="header-links">
+                <a href="#section1">Data Collection</a>
+                <a href="#section11">Your Rights</a>
+                <a href="#section17">Contact</a>
+            </nav>
         </div>
-    </a>
-    <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
-    </p>
-</div>
-<hr>
-{% endfor %}
+    </header>
 
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
-    {% endif %}
-</ul>
-{% endif %}
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-card">
+                <div class="sidebar-title">Table of Contents</div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="#section1" class="nav-link">1. Information We Collect</a></li>
+                        <li class="nav-item"><a href="#section2" class="nav-link">2. Legal Bases for Processing</a></li>
+                        <li class="nav-item"><a href="#section3" class="nav-link">3. How We Use Information</a></li>
+                        <li class="nav-item"><a href="#section4" class="nav-link">4. Sharing of Information</a></li>
+                        <li class="nav-item"><a href="#section5" class="nav-link">5. Third-Party Services</a></li>
+                        <li class="nav-item"><a href="#section6" class="nav-link">6. Advertising</a></li>
+                        <li class="nav-item"><a href="#section7" class="nav-link">7. International Transfers</a></li>
+                        <li class="nav-item"><a href="#section8" class="nav-link">8. Data Retention</a></li>
+                        <li class="nav-item"><a href="#section9" class="nav-link">9. Data Security</a></li>
+                        <li class="nav-item"><a href="#section10" class="nav-link">10. Children's Privacy</a></li>
+                        <li class="nav-item"><a href="#section11" class="nav-link">11. Your Privacy Rights</a></li>
+                        <li class="nav-item"><a href="#section12" class="nav-link">12. California Privacy Rights</a></li>
+                        <li class="nav-item"><a href="#section13" class="nav-link">13. EEA and UK Rights</a></li>
+                        <li class="nav-item"><a href="#section14" class="nav-link">14. Do Not Track</a></li>
+                        <li class="nav-item"><a href="#section15" class="nav-link">15. Automated Decision-Making</a></li>
+                        <li class="nav-item"><a href="#section16" class="nav-link">16. Changes to Policy</a></li>
+                        <li class="nav-item"><a href="#section17" class="nav-link">17. Contact Information</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero -->
+            <div class="hero fade-in">
+                <div class="hero-content">
+                    <h1>Privacy Policy</h1>
+                    <div class="hero-meta">
+                        <div class="hero-meta-item">
+                            <div class="hero-icon">📅</div>
+                            <span>Effective Date: July 2, 2026</span>
+                        </div>
+                        <div class="hero-meta-item">
+                            <div class="hero-icon">🏢</div>
+                            <span>Developer: CyperHecate</span>
+                        </div>
+                        <div class="hero-meta-item">
+                            <div class="hero-icon">🌏</div>
+                            <span>Location: Japan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Banner -->
+            <div class="info-banner fade-in">
+                <div class="info-banner-title">ℹ️ Overview</div>
+                <div class="info-banner-text">
+                    This Privacy Policy explains how CyperHecate ("we", "our", or "us") collects, uses, stores, shares, and protects information when you access or use our games, related websites, applications, and services (collectively, the "Services"). By using the Services, you acknowledge that you have read and understood this Privacy Policy.
+                </div>
+            </div>
+
+            <!-- Section 1 -->
+            <article id="section1" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <h2 class="section-title">Information We Collect</h2>
+                </div>
+                <div class="section-content">
+                    <p>We may collect information directly from you, automatically from your device, and from third-party service providers.</p>
+
+                    <h3>1.1 Information You Provide</h3>
+                    <ul class="styled-list">
+                        <li>Email address</li>
+                        <li>Support requests</li>
+                        <li>Feedback and survey responses</li>
+                        <li>Account information</li>
+                        <li>User-generated content</li>
+                        <li>Communications with customer support</li>
+                    </ul>
+
+                    <h3>1.2 Information Collected Automatically</h3>
+                    <p>When you use the Services, we may automatically collect:</p>
+                    <ul class="styled-list">
+                        <li>Device identifiers (Android Advertising ID, App Set ID)</li>
+                        <li>Device model, manufacturer, and operating system</li>
+                        <li>Browser information and language settings</li>
+                        <li>Country, region, IP address, and ISP</li>
+                        <li>Screen resolution and app version</li>
+                        <li>Session duration and gameplay activities</li>
+                        <li>Event logs, crash reports, and diagnostics</li>
+                        <li>Security and fraud-prevention information</li>
+                    </ul>
+
+                    <h3>1.3 Purchase Information</h3>
+                    <p>When you make purchases through Google Play or other platforms:</p>
+                    <ul class="styled-list">
+                        <li>Transaction status and product purchased</li>
+                        <li>Purchase timestamp</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <div class="highlight-box-title">⚠️ Important</div>
+                        <div class="highlight-box-text">Payment card information is processed exclusively by the platform provider and is never stored by us.</div>
+                    </div>
+
+                    <h3>1.4 Advertising Information</h3>
+                    <p>Advertising partners may collect:</p>
+                    <ul class="styled-list">
+                        <li>Advertising identifiers and device information</li>
+                        <li>Ad interactions and impression data</li>
+                        <li>Conversion information</li>
+                    </ul>
+
+                    <h3>1.5 Analytics Information</h3>
+                    <p>Analytics providers may collect information regarding:</p>
+                    <ul class="styled-list">
+                        <li>Game progression and session activity</li>
+                        <li>Feature usage and retention metrics</li>
+                        <li>Performance metrics and crash diagnostics</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Section 2 -->
+            <article id="section2" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">2</div>
+                    <h2 class="section-title">Legal Bases for Processing (GDPR)</h2>
+                </div>
+                <div class="section-content">
+                    <p>For users located in the European Economic Area (EEA), United Kingdom, and other jurisdictions with similar laws, we process personal information based on one or more of the following legal grounds:</p>
+                    <div class="cards-grid">
+                        <div class="mini-card">
+                            <div class="mini-card-title">Contract Performance</div>
+                            <div class="mini-card-text">Processing necessary to provide our Services</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">Legitimate Interests</div>
+                            <div class="mini-card-text">For business operations and security</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">Legal Obligations</div>
+                            <div class="mini-card-text">Compliance with applicable laws</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">Vital Interests</div>
+                            <div class="mini-card-text">Protection of vital interests</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">User Consent</div>
+                            <div class="mini-card-text">Where explicitly obtained</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 3 -->
+            <article id="section3" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">3</div>
+                    <h2 class="section-title">How We Use Information</h2>
+                </div>
+                <div class="section-content">
+                    <p>We use the information we collect to:</p>
+                    <div class="cards-grid">
+                        <div class="mini-card">
+                            <div class="mini-card-title">Service Delivery</div>
+                            <div class="mini-card-text">Provide and operate the Services, authenticate users, save game progress, enable cloud sync</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">Commerce</div>
+                            <div class="mini-card-text">Process purchases, deliver rewards and virtual goods</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">Support</div>
+                            <div class="mini-card-text">Provide customer support and respond to inquiries</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">Improvement</div>
+                            <div class="mini-card-text">Monitor usage, improve gameplay experience</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">Security</div>
+                            <div class="mini-card-text">Detect fraud, prevent cheating, ensure platform security</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">Marketing</div>
+                            <div class="mini-card-text">Deliver advertisements and measure effectiveness</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 4 -->
+            <article id="section4" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">4</div>
+                    <h2 class="section-title">Sharing of Information</h2>
+                </div>
+                <div class="section-content">
+                    <div class="highlight-box">
+                        <div class="highlight-box-title">🚫 We Do Not Sell Your Data</div>
+                        <div class="highlight-box-text">We do not sell personal information in exchange for monetary compensation.</div>
+                    </div>
+
+                    <h3>Service Providers</h3>
+                    <p>We share information with providers of:</p>
+                    <ul class="styled-list">
+                        <li>Cloud hosting and analytics</li>
+                        <li>Advertising and customer support</li>
+                        <li>Payment processing and security services</li>
+                    </ul>
+
+                    <h3>Legal Requirements</h3>
+                    <p>We may disclose information when required by:</p>
+                    <ul class="styled-list">
+                        <li>Law, court order, or government request</li>
+                        <li>Regulatory authority requirements</li>
+                    </ul>
+
+                    <h3>Business Transfers</h3>
+                    <p>Information may be transferred as part of:</p>
+                    <ul class="styled-list">
+                        <li>Merger, acquisition, or asset sale</li>
+                        <li>Corporate restructuring</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Section 5 -->
+            <article id="section5" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">5</div>
+                    <h2 class="section-title">Third-Party Services</h2>
+                </div>
+                <div class="section-content">
+                    <p>The Services may integrate third-party technologies including:</p>
+                    <ul class="styled-list">
+                        <li><strong>Google Play Services</strong> - Core Android functionality</li>
+                        <li><strong>Google Play Billing</strong> - In-app purchases</li>
+                        <li><strong>Firebase Analytics</strong> - Usage analytics</li>
+                        <li><strong>Firebase Crashlytics</strong> - Crash reporting</li>
+                        <li><strong>Firebase Cloud Messaging</strong> - Push notifications</li>
+                        <li><strong>Google AdMob</strong> - Advertising platform</li>
+                        <li><strong>Google Sign-In</strong> - Authentication</li>
+                        <li><strong>Google Consent Management Platform</strong> - Consent handling</li>
+                    </ul>
+                    <p><strong>Note:</strong> Each provider maintains its own privacy practices. We encourage you to review their privacy policies.</p>
+                </div>
+            </article>
+
+            <!-- Section 6 -->
+            <article id="section6" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">6</div>
+                    <h2 class="section-title">Advertising and Personalized Ads</h2>
+                </div>
+                <div class="section-content">
+                    <p>The Services may display advertisements. Advertising partners may use technologies such as:</p>
+                    <ul class="styled-list">
+                        <li>Advertising identifiers</li>
+                        <li>Cookies and SDKs</li>
+                        <li>Similar tracking technologies</li>
+                    </ul>
+                    <p>These technologies may be used to:</p>
+                    <ul class="styled-list">
+                        <li>Deliver and personalize advertisements</li>
+                        <li>Measure advertising effectiveness</li>
+                        <li>Prevent advertising fraud</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <div class="highlight-box-title">💡 Your Choices</div>
+                        <div class="highlight-box-text">Where required by law, consent will be obtained before personalized advertising is enabled. Users may manage advertising preferences through their device settings.</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 7 -->
+            <article id="section7" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">7</div>
+                    <h2 class="section-title">International Data Transfers</h2>
+                </div>
+                <div class="section-content">
+                    <p>Information may be processed and stored in countries other than your own.</p>
+                    <p>Where required by applicable law, we implement appropriate safeguards, including:</p>
+                    <ul class="styled-list">
+                        <li>Standard Contractual Clauses (SCCs)</li>
+                        <li>Adequacy decisions</li>
+                        <li>Other legally recognized transfer mechanisms</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Section 8 -->
+            <article id="section8" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">8</div>
+                    <h2 class="section-title">Data Retention</h2>
+                </div>
+                <div class="section-content">
+                    <p>We retain information only as long as necessary to:</p>
+                    <ul class="styled-list">
+                        <li>Provide Services and maintain accounts</li>
+                        <li>Resolve disputes and enforce agreements</li>
+                        <li>Meet legal obligations</li>
+                    </ul>
+                    <p>Retention periods may vary depending on the nature of the information and applicable legal requirements.</p>
+                    <p>When information is no longer required, it will be deleted, anonymized, or securely destroyed.</p>
+                </div>
+            </article>
+
+            <!-- Section 9 -->
+            <article id="section9" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">9</div>
+                    <h2 class="section-title">Data Security</h2>
+                </div>
+                <div class="section-content">
+                    <p>We implement commercially reasonable safeguards designed to protect information:</p>
+                    <div class="cards-grid">
+                        <div class="mini-card">
+                            <div class="mini-card-title">🔐 Encryption</div>
+                            <div class="mini-card-text">Where appropriate for data protection</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">🔒 Access Controls</div>
+                            <div class="mini-card-text">Restricted access to authorized personnel</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">👁️ Monitoring</div>
+                            <div class="mini-card-text">Continuous security monitoring systems</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">📋 Reviews</div>
+                            <div class="mini-card-text">Regular security assessments</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">🤝 Confidentiality</div>
+                            <div class="mini-card-text">Employee confidentiality obligations</div>
+                        </div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-box-title">⚠️ Disclaimer</div>
+                        <div class="highlight-box-text">However, no system can guarantee absolute security.</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 10 -->
+            <article id="section10" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">10</div>
+                    <h2 class="section-title">Children's Privacy (COPPA)</h2>
+                </div>
+                <div class="section-content">
+                    <p>The Services are not directed toward children under 13 years of age unless specifically identified otherwise.</p>
+                    <ul class="styled-list">
+                        <li>We do not knowingly collect personal information from children under 13 without verifiable parental consent.</li>
+                        <li>If we become aware that a child has provided personal information in violation of applicable law, we will take reasonable steps to delete the information.</li>
+                        <li>Parents or guardians may contact us regarding any concerns.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Section 11 -->
+            <article id="section11" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">11</div>
+                    <h2 class="section-title">Your Privacy Rights</h2>
+                </div>
+                <div class="section-content">
+                    <p>Depending on your jurisdiction, you may have the following rights:</p>
+                    <div class="cards-grid">
+                        <div class="mini-card">
+                            <div class="mini-card-title">📖 Access</div>
+                            <div class="mini-card-text">Request access to personal information we hold about you</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">✏️ Correction</div>
+                            <div class="mini-card-text">Request correction of inaccurate information</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">🗑️ Deletion</div>
+                            <div class="mini-card-text">Request deletion of personal information</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">🚫 Restriction</div>
+                            <div class="mini-card-text">Request limitation of processing</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">⛔ Objection</div>
+                            <div class="mini-card-text">Object to certain forms of processing</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">📦 Data Portability</div>
+                            <div class="mini-card-text">Request transfer of information where feasible</div>
+                        </div>
+                        <div class="mini-card">
+                            <div class="mini-card-title">🔄 Withdraw Consent</div>
+                            <div class="mini-card-text">Withdraw consent at any time where applicable</div>
+                        </div>
+                    </div>
+                    <p>To exercise these rights, contact us using the information in Section 17.</p>
+                </div>
+            </article>
+
+            <!-- Section 12 -->
+            <article id="section12" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">12</div>
+                    <h2 class="section-title">California Privacy Rights (CCPA/CPRA)</h2>
+                </div>
+                <div class="section-content">
+                    <p>California residents may have the following rights:</p>
+                    <ul class="styled-list">
+                        <li><strong>Right to Know</strong> - Know what personal information is collected</li>
+                        <li><strong>Right to Access</strong> - Access their personal information</li>
+                        <li><strong>Right to Correct</strong> - Correct inaccurate information</li>
+                        <li><strong>Right to Delete</strong> - Delete personal information</li>
+                        <li><strong>Right to Opt-Out</strong> - Opt out of the sale or sharing of personal information</li>
+                        <li><strong>Right to Limit</strong> - Limit use of sensitive personal information</li>
+                        <li><strong>Right Against Discrimination</strong> - Not be discriminated against for exercising privacy rights</li>
+                    </ul>
+                    <p>To submit a privacy request, contact us using the information in Section 17. We will verify requests in accordance with applicable law.</p>
+                </div>
+            </article>
+
+            <!-- Section 13 -->
+            <article id="section13" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">13</div>
+                    <h2 class="section-title">EEA and United Kingdom Rights</h2>
+                </div>
+                <div class="section-content">
+                    <p>If you reside in the EEA or United Kingdom, you may:</p>
+                    <ul class="styled-list">
+                        <li>Lodge a complaint with a supervisory authority</li>
+                        <li>Request access, correction, deletion, or portability</li>
+                        <li>Object to processing</li>
+                        <li>Restrict processing</li>
+                        <li>Withdraw consent where applicable</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Section 14 -->
+            <article id="section14" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">14</div>
+                    <h2 class="section-title">Do Not Track</h2>
+                </div>
+                <div class="section-content">
+                    <p>Some web browsers provide a "Do Not Track" feature.</p>
+                    <p>Because there is no universally accepted standard, our Services may not respond to Do Not Track signals.</p>
+                </div>
+            </article>
+
+            <!-- Section 15 -->
+            <article id="section15" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">15</div>
+                    <h2 class="section-title">Automated Decision-Making</h2>
+                </div>
+                <div class="section-content">
+                    <p>We do not engage in automated decision-making that produces legal or similarly significant effects on individuals.</p>
+                </div>
+            </article>
+
+            <!-- Section 16 -->
+            <article id="section16" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">16</div>
+                    <h2 class="section-title">Changes to This Privacy Policy</h2>
+                </div>
+                <div class="section-content">
+                    <p>We may modify this Privacy Policy from time to time.</p>
+                    <p>Material changes may be communicated through:</p>
+                    <ul class="styled-list">
+                        <li>In-game notices</li>
+                        <li>Website notices</li>
+                        <li>Platform notices</li>
+                    </ul>
+                    <p>The updated version becomes effective upon publication unless otherwise stated.</p>
+                </div>
+            </article>
+
+            <!-- Section 17 -->
+            <article id="section17" class="section-card fade-in">
+                <div class="section-header">
+                    <div class="section-number">17</div>
+                    <h2 class="section-title">Contact Information</h2>
+                </div>
+                <div class="section-content">
+                    <p>If you have questions regarding this Privacy Policy or wish to exercise your privacy rights, please contact:</p>
+                    
+                    <div class="contact-box">
+                        <div class="contact-title">
+                            <div class="contact-icon">✉️</div>
+                            CyperHecate
+                        </div>
+                        <ul class="contact-list">
+                            <li class="contact-item">
+                                <span class="contact-label">Developer:</span>
+                                <span class="contact-value">CyperHecate</span>
+                            </li>
+                            <li class="contact-item">
+                                <span class="contact-label">Email:</span>
+                                <span class="contact-value"><a href="mailto:Cybervalkyrie2077@gmail.com">Cybervalkyrie2077@gmail.com</a></span>
+                            </li>
+                            <li class="contact-item">
+                                <span class="contact-label">Country:</span>
+                                <span class="contact-value">Japan</span>
+                            </li>
+                            <li class="contact-item">
+                                <span class="contact-label">Privacy Requests:</span>
+                                <span class="contact-value">Please send all privacy-related requests to the email address above</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="acknowledgment">
+                        <p class="acknowledgment-text">✅ By using the Services, you acknowledge that you have read and understood this Privacy Policy.</p>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">© 2026 CyperHecate. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#section1">Privacy Policy</a>
+                <a href="mailto:Cybervalkyrie2077@gmail.com">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll and active section highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('article[id]');
+            
+            // Smooth scroll for nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const headerOffset = 100;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Active section highlighting on scroll
+            function updateActiveNav() {
+                const scrollPosition = window.scrollY + 150;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav();
+            
+            // Fade-in animation on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
